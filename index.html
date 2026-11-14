@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Happy Birthday, Mummy 💗</title>
+  <meta name="description" content="A little love letter for Mummy's 49th birthday.">
+  <meta name="theme-color" content="#FFE4EC">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}.char{opacity:1!important}.hero-sub,.arch{opacity:1!important}</style></noscript>
+</head>
+<body>
+
+  <!-- Reusable SVG shapes -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-heart" viewBox="0 0 32 28.5"><path d="M23.6 0c-3.4 0-6.3 1.9-7.6 4.7C14.7 1.9 11.8 0 8.4 0 3.8 0 0 3.8 0 8.4c0 9.8 16 20.1 16 20.1s16-10.3 16-20.1C32 3.8 28.2 0 23.6 0z"/></symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0z"/></symbol>
+      <symbol id="i-flower" viewBox="0 0 100 100">
+        <g fill="currentColor" fill-opacity=".88">
+          <ellipse cx="50" cy="26" rx="15" ry="24"/>
+          <ellipse cx="50" cy="26" rx="15" ry="24" transform="rotate(72 50 50)"/>
+          <ellipse cx="50" cy="26" rx="15" ry="24" transform="rotate(144 50 50)"/>
+          <ellipse cx="50" cy="26" rx="15" ry="24" transform="rotate(216 50 50)"/>
+          <ellipse cx="50" cy="26" rx="15" ry="24" transform="rotate(288 50 50)"/>
+        </g>
+        <circle cx="50" cy="50" r="11" fill="#F2C14E"/>
+        <circle cx="47" cy="47" r="4" fill="#fff" fill-opacity=".55"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <canvas id="bg-fx" aria-hidden="true"></canvas>
+  <canvas id="trail-fx" aria-hidden="true"></canvas>
+
+  <main>
+
+    <!-- 1 · HERO -->
+    <section id="hero" class="section hero" data-decor="f-tl,f-tr,h-tl,h-tr,h-bl,h-br,s-tl,s-br">
+      <div class="wrap hero-inner">
+        <h1 class="hero-title parallax" data-speed="-0.04">
+          <span class="line" id="heroLine1">Happy Birthday,</span>
+          <span class="line name" id="heroLine2">Mummy</span>
+        </h1>
+
+        <div class="arch parallax" data-speed="0.07">
+          <svg class="arch-badge" aria-hidden="true"><use href="#i-heart"/></svg>
+          <img id="heroPhoto" src="images/1.jpg" alt="Mummy, smiling" fetchpriority="high" decoding="async">
+        </div>
+
+        <p class="hero-sub" id="heroSub">To the world's best Mummy, I love you</p>
+      </div>
+
+      <a class="scroll-cue" href="#counter" aria-label="Scroll down">
+        <span>scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- 2 · COUNTER -->
+    <section id="counter" class="section counter" data-decor="f-br,h-tl,s-tr">
+      <div class="wrap">
+        <div class="count-card glass reveal" data-reveal="zoom">
+          <div class="eyebrow">this many</div>
+          <div class="count-num">
+            <span id="count" aria-label="49">0</span>
+            <svg class="count-heart" aria-hidden="true"><use href="#i-heart"/></svg>
+          </div>
+          <p class="count-text" id="counterText">years of love, kindness and being the heart of our home</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · GALLERY -->
+    <section id="gallery-sec" class="section gallery" data-decor="f-tr,h-bl,s-tl">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <div class="eyebrow" data-t="galleryEyebrow">memories</div>
+          <h2 data-t="gallery">Moments with you</h2>
+          <div class="orn"></div>
+          <p class="sec-sub" data-t="gallerySub">Tap a photo to see it bigger, tap the heart to love it.</p>
+        </header>
+        <div class="carousel reveal" id="gallery"></div>
+        <p class="swipe-hint" aria-hidden="true">swipe for more →</p>
+      </div>
+    </section>
+
+
+
+
+    <!-- 7 · LETTER -->
+    <section id="letter-sec" class="section letter-sec" data-decor="f-tl,f-br,h-tr,s-bl">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <div class="eyebrow" data-t="letterEyebrow">written with all my heart</div>
+          <h2 data-t="letter">A letter, just for you</h2>
+          <div class="orn"></div>
+        </header>
+
+        <div class="letter-stage reveal" data-reveal="zoom">
+          <article class="paper" id="paper">
+            <div class="paper-body" id="paperBody">
+              <h3 class="letter-greet" id="letterGreet"></h3>
+              <div id="letterBody"></div>
+              <p class="letter-sign" id="letterSign"></p>
+              <p class="letter-from" id="letterFrom"></p>
+            </div>
+            <div class="cover" id="cover">
+              <span class="cover-to" id="coverTo">For Mummy</span>
+              <button class="seal" id="seal" aria-label="Break the wax seal to open the letter">
+                <svg aria-hidden="true"><use href="#i-heart"/></svg>
+              </button>
+              <span class="seal-hint">tap the seal to open</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · FINALE -->
+    <section id="finale" class="section finale" data-decor="f-tl,f-tr,h-bl,h-br,s-tl,s-tr">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <div class="eyebrow" data-t="finaleEyebrow">one last thing</div>
+          <h2 data-t="finale">There's a little surprise for you</h2>
+          <div class="orn"></div>
+        </header>
+
+        <div class="surprise-wrap reveal" data-reveal="zoom">
+          <button class="surprise-btn" id="surpriseBtn">Open your surprise</button>
+        </div>
+
+        <div class="finale-reveal" id="finaleReveal" hidden>
+          <div class="arch arch-big">
+            <svg class="arch-badge" aria-hidden="true"><use href="#i-heart"/></svg>
+            <img id="finalPhoto" src="images/2.jpg" data-fallback="images/1.jpg" alt="A final photo of Mummy" loading="lazy" decoding="async">
+          </div>
+          <p class="finale-text" id="finaleText">Happy Birthday Mummy, we love you more than words can say</p>
+          <div class="finale-hearts" aria-hidden="true">
+            <svg><use href="#i-heart"/></svg><svg><use href="#i-heart"/></svg><svg><use href="#i-heart"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">Made with all my love 💗</footer>
+  </main>
+
+  <!-- Giant heart for the surprise -->
+  <div class="mega-heart" id="megaHeart" aria-hidden="true"><svg><use href="#i-heart"/></svg></div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close photo">&times;</button>
+    <button class="lb-nav prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+    <img class="lb-img" id="lbImg" alt="">
+    <button class="lb-nav next" id="lbNext" aria-label="Next photo">&#8250;</button>
+    <div class="lb-count" id="lbCount"></div>
+  </div>
+
+  <!-- Music -->
+  <button class="music-btn" id="music" aria-label="Play music" aria-pressed="false">
+    <svg class="note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </button>
+  <audio id="song" preload="none" loop></audio>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
